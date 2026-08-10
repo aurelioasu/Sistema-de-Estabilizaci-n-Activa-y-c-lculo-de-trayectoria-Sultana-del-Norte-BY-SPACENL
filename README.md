@@ -1,0 +1,2 @@
+# Sistema-de-Estabilizaci-n-Activa-y-c-lculo-de-trayectoria-Sultana-del-Norte-BY-SPACENL
+El proyecto "Sultana del Norte" (ExpoCiencias NL 2026) desarrolla un sistema de estabilización activa para cohetes experimentales. Utiliza aviónica ESP32-S3, sensores IMU/altímetro y aletas canards guiadas por un control PID a 100 Hz para reducir la desviación por viento en al menos 50%, validado con simulaciones HIL 6-DoF.
