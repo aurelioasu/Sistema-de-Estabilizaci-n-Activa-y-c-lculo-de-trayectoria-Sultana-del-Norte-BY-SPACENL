@@ -19,7 +19,7 @@ Este documento registra cómo se transforma la entrega original en la publicaci�
 | Electrónica | Entrega técnica | `02-electronica/` | Curado: 15 de 15 archivos incluidos |
 | Firmware ESP32 | Área de trabajo local | `03-firmware-esp32/` | Completo: 3 sketches limpios y compilados |
 | Aplicación | Área de trabajo local | `04-app-sultana/` | Completo: fuentes Python, C++, Go, configuraciones y datos |
-| Documentación | Entrega técnica | `05-documentacion/` | Pendiente de curación |
+| Documentación | Entrega técnica | `05-documentacion/` | Curada: 3 documentos en DOCX/PDF, arquitectura y manuales enlazados al código |
 | Multimedia pesado | Entrega técnica | GitHub Release | Pendiente de empaquetado |
 
 ## Decisiones verificadas
@@ -44,4 +44,17 @@ Este documento registra cómo se transforma la entrega original en la publicaci�
 - La aplicación conserva 46 archivos Python, 5 C++, 107 de Kutta, 7 configuraciones y 31 recursos de datos.
 - La identidad anterior fue eliminada de rutas, interfaz, protocolo propio y textos públicos.
 
-La tabla volverá a actualizarse al cerrar documentación, paquetes y Release `v1.0.0`.
+### Documentación
+
+- El reporte técnico final de 84 páginas se conserva como referencia integral vigente en DOCX y PDF verificado.
+- El informe CAD se conserva como material complementario en ambos formatos.
+- El protocolo de mayo de 2026 se conserva como revisión histórica y se advierte que no define el hardware ni el firmware vigentes.
+- Cinco manuales anteriores con identidad heredada no se publican; sus instrucciones útiles se consolidaron en los README de firmware, electrónica y aplicación.
+- El detalle y los hashes se encuentran en [`05-documentacion/INVENTARIO.csv`](05-documentacion/INVENTARIO.csv).
+
+### Licencias
+
+- Se conserva el texto MIT original del componente Kutta en [`LICENSES/Kutta-MIT.txt`](LICENSES/Kutta-MIT.txt).
+- Las atribuciones y el estado de licencia del código propio se explican en [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+
+La tabla volverá a actualizarse al cerrar los paquetes y la Release `v1.0.0`.
