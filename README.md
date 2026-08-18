@@ -219,7 +219,7 @@ Proyecto desarrollado por la comunidad **Space NL**:
 
 - Aurelio Salas González
 - Gael Sebastián García Azpeytia
-- Sergio Axell Flores Obando
+- [Sergio Axell Flores Obando](https://github.com/Hir0qwq) · coautor y colaborador
 - Asesor: Fernando Alonso Villalobos
 
 <p align="center">
