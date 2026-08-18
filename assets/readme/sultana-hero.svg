@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="560" viewBox="0 0 1600 560" role="img" aria-labelledby="title description">
+  <title id="title">Sultana del Norte</title>
+  <desc id="description">Sistema de estabilización y corrección activa de vuelo desarrollado por Space NL.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07090d"/>
+      <stop offset="0.55" stop-color="#141920"/>
+      <stop offset="1" stop-color="#090b0f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.28" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f57c00" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#f57c00" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c7cbd0"/>
+      <stop offset="0.5" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#9ca3aa"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9d1d"/>
+      <stop offset="1" stop-color="#e95d00"/>
+    </linearGradient>
+    <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+      <path d="M 46 0 L 0 0 0 46" fill="none" stroke="#ffffff" stroke-opacity="0.035" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#000000" flood-opacity="0.62"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="560" rx="28" fill="url(#background)"/>
+  <rect width="1600" height="560" rx="28" fill="url(#glow)"/>
+  <rect x="1" y="1" width="1598" height="558" rx="27" fill="url(#grid)" stroke="#ffffff" stroke-opacity="0.08"/>
+
+  <g opacity="0.5" fill="#f57c00">
+    <circle cx="91" cy="85" r="2"/><circle cx="168" cy="471" r="2"/>
+    <circle cx="516" cy="91" r="2"/><circle cx="1446" cy="106" r="2"/>
+    <circle cx="1507" cy="437" r="2"/><circle cx="1234" cy="492" r="2"/>
+  </g>
+
+  <path d="M 84 446 C 188 406, 250 360, 290 292 C 338 210, 354 137, 416 80" fill="none" stroke="#f57c00" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 14" opacity="0.55"/>
+  <circle cx="84" cy="446" r="6" fill="#f57c00"/>
+
+  <g transform="translate(300 282) rotate(28)" filter="url(#shadow)">
+    <path d="M 0 -196 C 37 -166 48 -126 48 -80 L 48 150 L -48 150 L -48 -80 C -48 -126 -37 -166 0 -196 Z" fill="url(#metal)"/>
+    <path d="M 0 -196 C 37 -166 45 -140 47 -111 L -47 -111 C -45 -140 -37 -166 0 -196 Z" fill="url(#orange)"/>
+    <rect x="-48" y="-77" width="96" height="24" fill="url(#orange)"/>
+    <path d="M -48 105 L -107 174 L -48 152 Z" fill="#f57c00"/>
+    <path d="M 48 105 L 107 174 L 48 152 Z" fill="#f57c00"/>
+    <path d="M -48 -16 L -96 27 L -48 13 Z" fill="#15191e"/>
+    <path d="M 48 -16 L 96 27 L 48 13 Z" fill="#15191e"/>
+    <path d="M -31 150 L 0 207 L 31 150 Z" fill="#ff8a00" opacity="0.85"/>
+    <path d="M -17 150 L 0 235 L 17 150 Z" fill="#ffd08a" opacity="0.62"/>
+    <circle cx="0" cy="-133" r="14" fill="#0f1318"/>
+    <path d="M -7 -133 l 7 -10 7 10 -7 10 z" fill="#f57c00"/>
+  </g>
+
+  <g transform="translate(632 82)">
+    <text x="0" y="0" fill="#ff9418" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4">SPACE NL · EXPOCIENCIAS NUEVO LEÓN 2026</text>
+    <rect x="0" y="34" width="98" height="7" rx="3.5" fill="#f57c00"/>
+    <text x="0" y="139" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="92" font-weight="800" letter-spacing="3">SULTANA</text>
+    <text x="4" y="210" fill="#c9ced5" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="300" letter-spacing="11">DEL NORTE</text>
+    <text x="4" y="265" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="27" font-weight="400">Sistema de estabilización y corrección activa de vuelo</text>
+    <text x="4" y="303" fill="#aeb5bd" font-family="Segoe UI, Arial, sans-serif" font-size="20">Aviónica, control, telemetría, simulación y análisis en una sola plataforma.</text>
+
+    <g transform="translate(4 344)" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">
+      <g><rect width="148" height="44" rx="22" fill="#f57c00"/><text x="74" y="28" text-anchor="middle" fill="#101318">ESP32-S3</text></g>
+      <g transform="translate(164)"><rect width="160" height="44" rx="22" fill="#252b33" stroke="#555d67"/><text x="80" y="28" text-anchor="middle" fill="#ffffff">4 CANARDS</text></g>
+      <g transform="translate(340)"><rect width="176" height="44" rx="22" fill="#252b33" stroke="#555d67"/><text x="88" y="28" text-anchor="middle" fill="#ffffff">TELEMETRÍA</text></g>
+      <g transform="translate(532)"><rect width="205" height="44" rx="22" fill="#252b33" stroke="#555d67"/><text x="102.5" y="28" text-anchor="middle" fill="#ffffff">SIMULACIÓN 6-DOF</text></g>
+    </g>
+  </g>
+
+  <path d="M 630 504 H 1512" stroke="#ffffff" stroke-opacity="0.14"/>
+  <text x="632" y="531" fill="#727b85" font-family="Segoe UI, Arial, sans-serif" font-size="17" letter-spacing="1">DISEÑO ABIERTO A AUDITORÍA · ACTUACIÓN BLOQUEADA POR DEFECTO</text>
+</svg>

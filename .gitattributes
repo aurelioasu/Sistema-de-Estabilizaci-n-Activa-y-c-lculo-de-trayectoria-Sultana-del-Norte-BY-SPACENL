@@ -1,0 +1,43 @@
+* text=auto
+
+*.afoil text eol=lf
+*.c text eol=lf
+*.cmake text eol=lf
+*.cpp text eol=lf
+*.csv text eol=lf
+*.go text eol=lf
+*.h text eol=lf
+*.hpp text eol=lf
+*.html text eol=lf
+*.ino text eol=lf
+*.json text eol=lf
+*.kage text eol=lf
+*.md text eol=lf
+*.mod text eol=lf
+*.mtl text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.sum text eol=lf
+*.svg text eol=lf
+*.toml text eol=lf
+*.txt text eol=lf
+*.vtp text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+LICENSE text eol=lf
+
+*.docx binary
+*.gif binary
+*.ico binary
+*.jpeg binary
+*.jpg binary
+*.mp4 binary
+*.obj binary
+*.pdf binary
+*.png binary
+*.step binary
+*.stl binary
+*.zip binary
+
+# Archivo autogenerado y autocontenido; conservar bytes originales.
+02-electronica/bom/interactive-bom.html binary

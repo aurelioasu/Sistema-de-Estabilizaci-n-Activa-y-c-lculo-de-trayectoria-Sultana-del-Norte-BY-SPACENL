@@ -1,0 +1,12 @@
+(scene
+  (object "neko"
+    (shape
+      (point 118 100) (point 124 110) (point 130 114) (point 133 126)
+      (point 138 116) (point 142 128) (point 147 116) (point 160 124)
+      (point 200 126) (point 224 122) (point 232 120) (point 240 132)
+      (point 236 108) (point 231 100) (point 228 98) (point 226 72)
+      (point 219 72) (point 217 96) (point 200 92) (point 152 92)
+      (point 150 72) (point 143 72) (point 141 95) (point 132 94)
+      (point 126 92))
+    (pivot 180 100))
+  (loop 0))

@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sultana-flight-simulator"
+version = "1.0.0"
+description = "Desktop 6-DoF rocket simulation and telemetry"
+requires-python = ">=3.11"
+dependencies = [
+  "PySide6>=6.6",
+  "PyYAML>=6.0",
+  "httpx>=0.27",
+  "numpy>=1.26",
+  "Pillow>=10",
+  "pyqtgraph>=0.13",
+  "pyserial>=3.5",
+]
+
+[project.scripts]
+sultana-sim = "app.bootstrap:main"
+
+[project.optional-dependencies]
+3d = ["pyvista>=0.43", "pyvistaqt>=0.11"]
+export = ["pyarrow>=15"]
+dev = ["pytest>=8", "pytest-qt>=4.4"]
+propulsion = ["RocketCEA>=1.2.3"]
+
+[tool.setuptools]
+package-dir = {"" = "python"}
+
+[tool.setuptools.packages.find]
+where = ["python"]
+
+[tool.pytest.ini_options]
+pythonpath = ["python"]
+testpaths = ["python/tests"]

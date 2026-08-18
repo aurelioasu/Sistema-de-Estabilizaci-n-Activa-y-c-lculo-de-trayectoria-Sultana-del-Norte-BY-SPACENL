@@ -1,0 +1,38 @@
+schema_version: 1
+profile_id: guadalupe-local-example
+source: local_profile
+launch_site:
+  latitude_deg: 25.681
+  longitude_deg: -100.311
+  altitude_msl_m: 500.0
+weather:
+  surface_temperature_k: 300.75
+  surface_pressure_pa: 93820.0
+  humidity_ratio: 0.58
+  mean_wind_enu_mps:
+  - -0.9079132713700503
+  - -1.398063836765022
+  - 0.0
+  turbulence_intensity_mps: 0.8
+  turbulence_seed: 42
+  rain_rate_mm_h: 0.0
+  rain_cd_delta: 0.0
+  friction_heat_coefficient: 0.0
+  vibration_gain: 0.0
+controller:
+  kp: 0.25
+  ki: 0.03
+  kd: 0.04
+  target_pitch_rad: -1.57079632679
+  target_yaw_rad: 0.0
+rail:
+  length_m: 3.0
+  elevation_deg: 90.0
+  azimuth_deg: 0.0
+sensors:
+  imu_accel_noise_std_mps2: 0.15
+  barometer_noise_std_m: 1.5
+  barometer_bias_m: 0.0
+  gps_noise_std_m: 3.0
+  estimator_time_constant_s: 0.5
+  seed: 314159

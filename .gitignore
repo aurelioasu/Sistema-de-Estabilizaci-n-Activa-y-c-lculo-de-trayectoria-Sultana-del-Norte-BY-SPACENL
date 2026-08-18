@@ -1,0 +1,43 @@
+# Python
+.venv/
+.venv-*/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Compilaciones y paquetes
+build/
+out/
+output/
+output-debug/
+release-assets/
+*.exe
+*.msi
+*.spec
+04-app-sultana/tools/go/
+04-app-sultana/tools/gopath/
+04-app-sultana/tools/kutta/
+
+# Resultados locales
+results/
+results-*/
+logs/
+tmp/
+*.log
+
+# IDE y sistema operativo
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Credenciales y configuración privada
+.env
+.env.*
+!.env.example
+*.pem
+*.key
