@@ -47,7 +47,7 @@ QScrollBar:vertical { background: #211d1a; width: 10px; } QScrollBar::handle:ver
 class MainWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
-        self.setWindowTitle("Sultana - Simulador 6-DoF")
+        self.setWindowTitle("Sultana del Norte · Simulación y telemetría")
         screen = QApplication.primaryScreen()
         if screen is None:
             self.resize(1200, 760)

@@ -727,7 +727,7 @@ def test_packaged_cfd_tab_can_load_a_development_openfoam_case(tmp_path: Path, m
     (project / "python" / "app").mkdir(parents=True)
     case_dir = project / "out" / "cfd" / "finished"; case_dir.mkdir(parents=True)
     vtk = case_dir / "VTK" / "case_500" / "internal.vtu"; vtk.parent.mkdir(parents=True); vtk.write_text("vtk", encoding="utf-8")
-    frozen_root = project / "output" / "SultanaSimulator" / "_internal"; frozen_root.mkdir(parents=True)
+    frozen_root = project / "output" / "Sultana-del-Norte" / "_internal"; frozen_root.mkdir(parents=True)
 
     class Label:
         text = ""

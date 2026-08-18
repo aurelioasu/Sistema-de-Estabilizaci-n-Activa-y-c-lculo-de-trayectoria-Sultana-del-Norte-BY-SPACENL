@@ -5,8 +5,8 @@ import (
 	"testing"
 )
 
-func TestCansatSceneContainsRocketAndFourNACACanards(t *testing.T) {
-	sc := cansatScene()
+func TestSultanaSceneContainsRocketAndFourNACACanards(t *testing.T) {
+	sc := sultanaScene()
 	if len(sc.Objects) != 7 {
 		t.Fatalf("objects = %d, want rocket, two stabilizers and four canards", len(sc.Objects))
 	}
@@ -29,7 +29,7 @@ func TestCansatSceneContainsRocketAndFourNACACanards(t *testing.T) {
 		}
 	}
 	if covered < 1000 || covered > gridW*gridH/4 {
-		t.Errorf("CANSAT solid coverage = %d, outside compact tunnel range", covered)
+		t.Errorf("Sultana solid coverage = %d, outside compact tunnel range", covered)
 	}
 }
 

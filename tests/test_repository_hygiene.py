@@ -112,3 +112,16 @@ def test_audit_rejects_github_token_pattern(tmp_path: Path) -> None:
     assert result.returncode == 1
     assert "configuracion.txt" in result.stdout
     assert "posible secreto" in result.stdout
+
+
+def test_audit_ignores_local_build_artifacts(tmp_path: Path) -> None:
+    (tmp_path / "README.md").write_text("# Sultana del Norte\n", encoding="utf-8")
+    for directory in REQUIRED_DIRECTORIES:
+        (tmp_path / directory).mkdir()
+    generated = tmp_path / "04-app-sultana" / "build" / "CMakeCache.txt"
+    generated.parent.mkdir()
+    generated.write_text("Ruta local del CanSat\n", encoding="utf-8")
+
+    result = run_audit(tmp_path)
+
+    assert result.returncode == 0, result.stdout + result.stderr

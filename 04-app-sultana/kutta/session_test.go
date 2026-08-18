@@ -8,11 +8,11 @@ import (
 	"time"
 )
 
-func TestSessionRoundTripPreservesCansatAndControls(t *testing.T) {
+func TestSessionRoundTripPreservesSultanaAndControls(t *testing.T) {
 	path := filepath.Join(t.TempDir(), "kutta-session.json")
 	original := NewGame()
 	original.sessionPath = path
-	original.setScene(cansatScene(), "CANSAT 2D · cohete y canards NACA 66(1)-212")
+	original.setScene(sultanaScene(), "Sultana 2D · cohete y canards NACA 66(1)-212")
 	original.setAlpha(7.5)
 	original.setSpeed(0.12)
 	original.setControl(-8)
@@ -27,8 +27,8 @@ func TestSessionRoundTripPreservesCansatAndControls(t *testing.T) {
 	if err := restored.restoreSession(); err != nil {
 		t.Fatal(err)
 	}
-	if restored.scn == nil || len(restored.scn.Objects) != len(cansatScene().Objects) {
-		t.Fatal("CANSAT scene was not restored")
+	if restored.scn == nil || len(restored.scn.Objects) != len(sultanaScene().Objects) {
+		t.Fatal("Sultana scene was not restored")
 	}
 	if math.Abs(restored.alphaDeg-7.5) > 1e-9 || math.Abs(restored.u0-0.12) > 1e-9 {
 		t.Fatalf("controls not restored: alpha=%g speed=%g", restored.alphaDeg, restored.u0)
@@ -53,9 +53,9 @@ func TestInvalidSessionDoesNotReplaceCurrentState(t *testing.T) {
 	}
 }
 
-func TestNACAProfileButtonLeavesCansatAndCyclesProfiles(t *testing.T) {
+func TestNACAProfileButtonLeavesSultanaAndCyclesProfiles(t *testing.T) {
 	g := NewGame()
-	g.setScene(cansatScene(), "CANSAT 2D")
+	g.setScene(sultanaScene(), "Sultana 2D")
 	g.advanceNACAProfile()
 	if g.scn != nil || g.nacaCode != profiles[0] {
 		t.Fatalf("first NACA button action = scene %v, profile %q", g.scn != nil, g.nacaCode)
@@ -84,7 +84,7 @@ func TestLegacyDegradedFlagIsNotRestoredAsAUserPreference(t *testing.T) {
 
 func TestMemoryMaintenanceKeepsSceneAndRebuildsGraphics(t *testing.T) {
 	g := NewGame()
-	g.setScene(cansatScene(), "CANSAT 2D")
+	g.setScene(sultanaScene(), "Sultana 2D")
 	oldField, oldTrail := g.fieldImg, g.trailImg
 	started := time.Now()
 	g.performMemoryMaintenance()
@@ -92,7 +92,7 @@ func TestMemoryMaintenanceKeepsSceneAndRebuildsGraphics(t *testing.T) {
 		t.Fatalf("maintenance took %s, want less than two seconds", elapsed)
 	}
 	if g.scn == nil || len(g.scn.Objects) != 7 {
-		t.Fatal("maintenance discarded the active CANSAT scene")
+		t.Fatal("maintenance discarded the active Sultana scene")
 	}
 	if !g.degraded || g.glow || len(g.smoke.X) != degradedParticles {
 		t.Fatal("maintenance did not enter bounded visual mode")

@@ -34,6 +34,7 @@ TEXT_EXTENSIONS = {
     ".yml",
 }
 IDENTITY_SCAN_EXEMPT_PREFIXES = ("docs/superpowers/", "tests/", "tools/")
+IGNORED_DIRECTORY_NAMES = {".git", "build"}
 SECRET_PATTERNS = (
     re.compile(r"\bgh[pousr]_[A-Za-z0-9]{36,}\b"),
     re.compile(r"\bgithub_pat_[A-Za-z0-9_]{20,}\b"),
@@ -49,8 +50,9 @@ def audit_repository(root: Path) -> list[str]:
         if not (root / directory).is_dir():
             errors.append(f"Falta el directorio requerido: {directory}")
     for path in root.rglob("*"):
-        if path.is_file() and ".git" not in path.relative_to(root).parts:
-            relative = path.relative_to(root).as_posix()
+        relative_path = path.relative_to(root)
+        if path.is_file() and not IGNORED_DIRECTORY_NAMES.intersection(relative_path.parts[:-1]):
+            relative = relative_path.as_posix()
             if path.stat().st_size > MAX_GIT_FILE_BYTES:
                 errors.append(f"{relative} supera el límite de 100 MiB de GitHub")
             if "cansat" in relative.casefold():

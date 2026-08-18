@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sultana-flight-simulator"
-version = "0.1.0"
+version = "1.0.0"
 description = "Desktop 6-DoF rocket simulation and telemetry"
 requires-python = ">=3.11"
 dependencies = [

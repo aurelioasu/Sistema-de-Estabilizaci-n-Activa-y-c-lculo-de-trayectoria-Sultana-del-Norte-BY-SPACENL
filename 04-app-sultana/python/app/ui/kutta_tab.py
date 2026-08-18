@@ -268,7 +268,7 @@ class KuttaTab(QWidget):
         if not executable.is_file():
             self.status.setText(
                 "No se encontró tools/kutta/kutta.exe. Ejecuta 'python build_kutta.py' "
-                "desde la carpeta CANSAT."
+                "desde la carpeta del proyecto Sultana del Norte."
             )
             return
 
@@ -297,7 +297,7 @@ class KuttaTab(QWidget):
         """Manually restart from the original NACA tunnel defaults.
 
         Automatic memory recovery calls ``start`` directly and deliberately
-        leaves this checkpoint intact, so it restores the current CANSAT/NACA
+        leaves this checkpoint intact, so it restores the current Sultana/NACA
         work.  The user-facing button is the one explicit reset action.
         """
         self._memory_recovery_count = 0

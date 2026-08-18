@@ -94,7 +94,7 @@ def main() -> int:
             splash_fade.start()
         except Exception as exc:
             splash.close()
-            QMessageBox.critical(None, "Error de inicio", f"No se pudo iniciar Sultana Simulator:\n\n{exc}")
+            QMessageBox.critical(None, "Error de inicio", f"No se pudo iniciar Sultana del Norte:\n\n{exc}")
             app.quit()
 
     QTimer.singleShot(SPLASH_MINIMUM_DURATION_MS, launch_application)

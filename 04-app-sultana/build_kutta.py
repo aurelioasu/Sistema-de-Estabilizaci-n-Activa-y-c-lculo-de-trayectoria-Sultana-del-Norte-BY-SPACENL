@@ -1,7 +1,7 @@
 """Install the pinned Go toolchain locally and build the native Kutta app.
 
 Nothing is installed system-wide.  The compiler, module cache and resulting
-Windows executable all stay below the CANSAT project directory.
+Windows executable all stay below the Sultana del Norte project directory.
 """
 from __future__ import annotations
 
@@ -41,7 +41,7 @@ def install_go() -> None:
     if GO_EXE.is_file():
         return
     if platform.machine().lower() not in {"amd64", "x86_64"}:
-        raise RuntimeError("La distribución actual de CANSAT requiere Windows x64.")
+        raise RuntimeError("La distribución actual de Sultana del Norte requiere Windows x64.")
     if GO_ROOT.exists():
         raise RuntimeError(
             f"La instalación local de Go está incompleta: {GO_ROOT}. "
@@ -118,7 +118,7 @@ def build_kutta(*, allow_install: bool) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Compilar Kutta dentro del proyecto CANSAT")
+    parser = argparse.ArgumentParser(description="Compilar Kutta dentro del proyecto Sultana del Norte")
     parser.add_argument(
         "--no-install",
         action="store_true",

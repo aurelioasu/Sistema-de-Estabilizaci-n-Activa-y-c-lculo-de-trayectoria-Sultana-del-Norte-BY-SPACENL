@@ -1,9 +1,9 @@
-"""Build the single-file Windows executable of Sultana Flight Simulator.
+"""Build the single-file Windows executable of Sultana del Norte.
 
 Usage:
     .\\.venv\\Scripts\\python.exe build_exe.py
 
-The result is ``output\\SultanaSimulator.exe``. Qt, VTK, the C++ simulation
+The result is ``output\\Sultana-del-Norte.exe``. Qt, VTK, the C++ simulation
 module and scenario data are embedded and extracted automatically at launch.
 """
 from __future__ import annotations
@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent
-EXECUTABLE = ROOT / "output" / "SultanaSimulator.exe"
+EXECUTABLE = ROOT / "output" / "Sultana-del-Norte.exe"
 BUILD = ROOT / "build" / "windows-current" / "Release"
 
 
@@ -34,7 +34,7 @@ def main() -> int:
         raise RuntimeError("No se encontró Kutta. Ejecuta primero 'python build_kutta.py'.")
     command = [
         sys.executable, "-m", "PyInstaller", "--noconfirm", "--clean", "--windowed", "--onefile",
-        "--name", "SultanaSimulator", "--distpath", str(ROOT / "output"),
+        "--name", "Sultana-del-Norte", "--distpath", str(ROOT / "output"),
         "--workpath", str(ROOT / "build" / "pyinstaller"),
         "--specpath", str(ROOT / "build" / "pyinstaller"),
         "--paths", str(ROOT / "python"), "--paths", str(module.parent),
@@ -53,7 +53,7 @@ def main() -> int:
     subprocess.run(command, cwd=ROOT, check=True)
     if not EXECUTABLE.is_file():
         raise RuntimeError("PyInstaller terminó sin generar el ejecutable esperado.")
-    print(f"\n[OK] Ejecutable Ãºnico: {EXECUTABLE}")
+    print(f"\n[OK] Ejecutable único: {EXECUTABLE}")
     return 0
 
 

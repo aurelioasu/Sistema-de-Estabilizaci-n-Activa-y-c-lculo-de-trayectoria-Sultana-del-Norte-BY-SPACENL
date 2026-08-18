@@ -41,7 +41,7 @@ const (
 	spdMax   = 0.15
 
 	tracerSpeed = 5.0  // visual advection multiplier for smoke tracers
-	nParticles  = 4200 // dense, continuous-looking flow around the complete CANSAT
+	nParticles  = 4200 // dense, continuous-looking flow around the complete Sultana vehicle
 
 	chordFrac = 0.40 // chord length as a fraction of grid width
 	leadXFrac = 0.26 // leading-edge x position as a fraction of grid width
@@ -397,7 +397,7 @@ func NewGame() *Game {
 	st.FieldW = 250 // slider track width in the bottom panel
 	g.sliders.SetStyle(st)
 
-	// Keep the original interactive NACA tunnel as the default.  The CANSAT
+	// Keep the original interactive NACA tunnel as the default. The Sultana
 	// rocket remains available through the visible button and Perfil menu.
 	g.applyBody(true)
 	return g
@@ -462,7 +462,7 @@ func (g *Game) selectFoil(code string) {
 }
 
 // advanceNACAProfile is the visible toolbar action for switching away from the
-// CANSAT scene and cycling through the bundled NACA profiles.  Tab keeps the
+// Sultana scene and cycling through the bundled NACA profiles. Tab keeps the
 // same behavior as a keyboard shortcut, but the button makes this discoverable
 // without needing to know the shortcut.
 func (g *Game) advanceNACAProfile() {
@@ -715,8 +715,8 @@ func (g *Game) menuItems() []menu.Item {
 
 	foilItems := make([]menu.Item, 0, len(profiles)+4)
 	foilItems = append(foilItems, menu.Item{
-		Title:   mark(g.scn != nil && strings.HasPrefix(g.scenePath, "CANSAT 2D")) + "Cohete CANSAT 2D · canards NACA 66(1)-212",
-		OnClick: act(func() { g.setScene(cansatScene(), "CANSAT 2D · cohete y canards NACA 66(1)-212") }),
+		Title:   mark(g.scn != nil && strings.HasPrefix(g.scenePath, "Sultana 2D")) + "Sultana del Norte 2D · canards NACA 66(1)-212",
+		OnClick: act(func() { g.setScene(sultanaScene(), "Sultana 2D · cohete y canards NACA 66(1)-212") }),
 	})
 	foilItems = append(foilItems, menu.Item{Separator: true})
 	for _, code := range profiles {
@@ -1019,8 +1019,8 @@ func (g *Game) runSimToolbar() {
 		}
 	}
 	g.gui.SameLine()
-	if g.gui.Button("st.cansat", "Cohete CANSAT") {
-		g.setScene(cansatScene(), "CANSAT 2D · cohete y canards NACA 66(1)-212")
+	if g.gui.Button("st.sultana", "Sultana del Norte") {
+		g.setScene(sultanaScene(), "Sultana 2D · cohete y canards NACA 66(1)-212")
 	}
 	g.gui.SameLine()
 	if g.gui.Button("st.naca-profile", "Perfil NACA "+g.nacaCode) {

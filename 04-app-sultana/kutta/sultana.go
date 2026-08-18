@@ -7,13 +7,13 @@ import (
 	"kutta/scene"
 )
 
-// cansatScene is an optional wind-tunnel specimen.  Every component is a
+// sultanaScene is an optional wind-tunnel specimen. Every component is a
 // closed LBM solid: the flow, pressure and wake respond to it, rather than to
 // a decorative overlay.  Its planform follows aefcsefef.ork: 180 mm ellipsoid
 // nose, 700 mm x 50.8 mm body tube, rear trapezoids and forward airfoil fins.
 // A side view exposes the upper/lower pair of each radial fin set; the small
 // axial offset keeps the four individual canards legible.
-func cansatScene() *scene.Scene {
+func sultanaScene() *scene.Scene {
 	p := func(x, y float64) foil.Point { return foil.Point{X: x, Y: y} }
 
 	// The .ork assembly is 0.880 m long.  At 250 lattice cells per metre it
@@ -24,7 +24,7 @@ func cansatScene() *scene.Scene {
 	tailBottom := trapezoidFin(p, 233.25, 270, 255.65, 267.90, 93.65, 17.50, false)
 
 	objects := []*scene.Object{
-		{Name: "cohete CANSAT", Shape: rocket, Pivot: p(160, 100)},
+		{Name: "cohete Sultana del Norte", Shape: rocket, Pivot: p(160, 100)},
 		{Name: "estabilizador superior", Shape: tailTop, Pivot: p(251, 106)},
 		{Name: "estabilizador inferior", Shape: tailBottom, Pivot: p(251, 94)},
 	}

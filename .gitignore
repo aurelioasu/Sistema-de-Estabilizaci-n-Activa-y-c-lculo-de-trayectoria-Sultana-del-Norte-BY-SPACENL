@@ -17,6 +17,9 @@ release-assets/
 *.exe
 *.msi
 *.spec
+04-app-sultana/tools/go/
+04-app-sultana/tools/gopath/
+04-app-sultana/tools/kutta/
 
 # Resultados locales
 results/
@@ -38,4 +41,3 @@ Desktop.ini
 !.env.example
 *.pem
 *.key
-

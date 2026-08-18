@@ -76,7 +76,7 @@ def rocketcea_motor_report(scenario: object, motor_id: str | None = None) -> Roc
 
     # A unique card name prevents a selector change from reusing another
     # motor's catalyst fraction in RocketCEA's process-global card registry.
-    name = f"CANSAT_{motor['id']}_{int(round(catalyst_mass_g * 1_000))}mg"
+    name = f"SULTANA_{motor['id']}_{int(round(catalyst_mass_g * 1_000))}mg"
     add_new_propellant(name, card)
     cea = CEA_Obj(propName=name)
     chamber_pressure_psi = chamber_pressure_pa / PSI_TO_PA
