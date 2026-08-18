@@ -14,6 +14,7 @@ REQUIRED_DIRECTORIES = (
     "04-app-sultana",
     "05-documentacion",
 )
+LEGACY_IDENTITY = "Can" + "Sat"
 
 
 def run_audit(target: Path) -> subprocess.CompletedProcess[str]:
@@ -76,13 +77,13 @@ def test_audit_rejects_legacy_project_identity(tmp_path: Path) -> None:
     (tmp_path / "README.md").write_text("# Sultana del Norte\n", encoding="utf-8")
     for directory in REQUIRED_DIRECTORIES:
         (tmp_path / directory).mkdir()
-    legacy_file = tmp_path / "03-firmware-esp32" / "Manual_CanSat.md"
-    legacy_file.write_text("Firmware del CANSAT\n", encoding="utf-8")
+    legacy_file = tmp_path / "03-firmware-esp32" / f"Manual_{LEGACY_IDENTITY}.md"
+    legacy_file.write_text(f"Firmware del {LEGACY_IDENTITY.upper()}\n", encoding="utf-8")
 
     result = run_audit(tmp_path)
 
     assert result.returncode == 1
-    assert "Manual_CanSat.md" in result.stdout
+    assert f"Manual_{LEGACY_IDENTITY}.md" in result.stdout
     assert "identidad heredada" in result.stdout
 
 
@@ -91,7 +92,7 @@ def test_audit_rejects_legacy_identity_inside_public_text(tmp_path: Path) -> Non
     for directory in REQUIRED_DIRECTORIES:
         (tmp_path / directory).mkdir()
     public_file = tmp_path / "03-firmware-esp32" / "guia.md"
-    public_file.write_text("Manual público del CanSat\n", encoding="utf-8")
+    public_file.write_text(f"Manual público del {LEGACY_IDENTITY}\n", encoding="utf-8")
 
     result = run_audit(tmp_path)
 
@@ -120,7 +121,7 @@ def test_audit_ignores_local_build_artifacts(tmp_path: Path) -> None:
         (tmp_path / directory).mkdir()
     generated = tmp_path / "04-app-sultana" / "build" / "CMakeCache.txt"
     generated.parent.mkdir()
-    generated.write_text("Ruta local del CanSat\n", encoding="utf-8")
+    generated.write_text(f"Ruta local del {LEGACY_IDENTITY}\n", encoding="utf-8")
 
     result = run_audit(tmp_path)
 
@@ -133,7 +134,7 @@ def test_audit_ignores_local_distribution_artifacts(tmp_path: Path) -> None:
         (tmp_path / directory).mkdir()
     generated = tmp_path / "04-app-sultana" / "output" / "identidad-anterior.txt"
     generated.parent.mkdir()
-    generated.write_text("Artefacto local CANSAT\n", encoding="utf-8")
+    generated.write_text(f"Artefacto local {LEGACY_IDENTITY.upper()}\n", encoding="utf-8")
 
     result = run_audit(tmp_path)
 

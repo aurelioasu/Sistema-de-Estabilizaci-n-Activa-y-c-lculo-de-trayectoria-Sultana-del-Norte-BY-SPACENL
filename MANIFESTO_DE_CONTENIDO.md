@@ -20,7 +20,7 @@ Este documento registra cómo se transforma la entrega original en la publicaci�
 | Firmware ESP32 | Área de trabajo local | `03-firmware-esp32/` | Completo: 3 sketches limpios y compilados |
 | Aplicación | Área de trabajo local | `04-app-sultana/` | Completo: fuentes Python, C++, Go, configuraciones y datos |
 | Documentación | Entrega técnica | `05-documentacion/` | Curada: 3 documentos en DOCX/PDF, arquitectura y manuales enlazados al código |
-| Multimedia pesado | Entrega técnica | GitHub Release | Pendiente de empaquetado |
+| Multimedia pesado | Entrega técnica | GitHub Release | Listo: 162 fotos/videos, 12 recursos CAD dinámicos y 1 BOM interactiva |
 
 ## Decisiones verificadas
 
@@ -57,4 +57,13 @@ Este documento registra cómo se transforma la entrega original en la publicaci�
 - Se conserva el texto MIT original del componente Kutta en [`LICENSES/Kutta-MIT.txt`](LICENSES/Kutta-MIT.txt).
 - Las atribuciones y el estado de licencia del código propio se explican en [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 
-La tabla volverá a actualizarse al cerrar los paquetes y la Release `v1.0.0`.
+## Paquetes cerrados para `v1.0.0`
+
+| Activo | Tamaño aproximado | Estado |
+|---|---:|---|
+| Aplicación Windows portable | 413.15 MiB | ZIP verificado íntegramente |
+| Aplicación Windows en un archivo | 410.27 MiB | Ejecutable abierto y revisado visualmente |
+| Video principal ExpoCiencias 2026 | 686.29 MiB | Copia íntegra de la entrega seleccionada |
+| Material técnico y multimedia | 876.62 MiB | ZIP verificado íntegramente; 175 archivos de material y 2 documentos guía |
+
+Los cuatro activos están por debajo del límite de 2 GiB por archivo de GitHub Releases. Sus hashes finales se publican en `SHA256SUMS.txt` junto con la Release `v1.0.0`.

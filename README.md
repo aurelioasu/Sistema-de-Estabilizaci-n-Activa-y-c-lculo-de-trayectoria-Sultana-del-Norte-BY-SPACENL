@@ -206,7 +206,10 @@ Los inventarios CSV de CAD, electrónica y documentación registran origen, tama
 - [Reporte técnico final — PDF](05-documentacion/informe-tecnico/Reporte-tecnico-Sultana-del-Norte-2026.pdf)
 - [Reporte técnico final — DOCX editable](05-documentacion/informe-tecnico/Reporte-tecnico-Sultana-del-Norte-2026.docx)
 - [Documentación curada y estados de revisión](05-documentacion/README.md)
-- [Release v1.0.0](https://github.com/aurelioasu/Sistema-de-Estabilizaci-n-Activa-y-c-lculo-de-trayectoria-Sultana-del-Norte-BY-SPACENL/releases/tag/v1.0.0): aplicación, video principal, material técnico/multimedia y sumas SHA-256
+- [Notas de la versión v1.0.0](docs/releases/v1.0.0.md)
+- [Video principal del proyecto](https://github.com/aurelioasu/Sistema-de-Estabilizaci-n-Activa-y-c-lculo-de-trayectoria-Sultana-del-Norte-BY-SPACENL/releases/download/v1.0.0/Sultana-del-Norte-ExpoCiencias-2026.mp4)
+- [Material técnico y multimedia](https://github.com/aurelioasu/Sistema-de-Estabilizaci-n-Activa-y-c-lculo-de-trayectoria-Sultana-del-Norte-BY-SPACENL/releases/download/v1.0.0/Sultana-del-Norte-v1.0.0-material-tecnico-y-multimedia.zip)
+- [Sumas SHA-256](https://github.com/aurelioasu/Sistema-de-Estabilizaci-n-Activa-y-c-lculo-de-trayectoria-Sultana-del-Norte-BY-SPACENL/releases/download/v1.0.0/SHA256SUMS.txt)
 
 Los videos, fotografías completas, visualizadores interactivos y paquetes pesados viven en GitHub Releases para mantener el historial Git ligero.
 

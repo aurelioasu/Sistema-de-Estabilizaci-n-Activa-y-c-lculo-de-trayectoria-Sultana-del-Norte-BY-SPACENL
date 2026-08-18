@@ -13,6 +13,7 @@ REQUIRED_DIRECTORIES = (
     "05-documentacion",
 )
 MAX_GIT_FILE_BYTES = 100 * 1024 * 1024
+LEGACY_IDENTITY = "can" + "sat"
 TEXT_EXTENSIONS = {
     ".c",
     ".cmake",
@@ -33,7 +34,6 @@ TEXT_EXTENSIONS = {
     ".yaml",
     ".yml",
 }
-IDENTITY_SCAN_EXEMPT_PREFIXES = ("docs/superpowers/", "tests/", "tools/")
 IGNORED_DIRECTORY_NAMES = {".git", "build", "output"}
 SECRET_PATTERNS = (
     re.compile(r"\bgh[pousr]_[A-Za-z0-9]{36,}\b"),
@@ -55,12 +55,11 @@ def audit_repository(root: Path) -> list[str]:
             relative = relative_path.as_posix()
             if path.stat().st_size > MAX_GIT_FILE_BYTES:
                 errors.append(f"{relative} supera el límite de 100 MiB de GitHub")
-            if "cansat" in relative.casefold():
-                errors.append(f"{relative} conserva identidad heredada CANSAT")
-            is_exempt = relative.startswith(IDENTITY_SCAN_EXEMPT_PREFIXES)
+            if LEGACY_IDENTITY in relative.casefold():
+                errors.append(f"{relative} conserva identidad heredada del proyecto anterior")
             if path.suffix.casefold() in TEXT_EXTENSIONS:
                 content = path.read_text(encoding="utf-8", errors="ignore")
-                if not is_exempt and "cansat" in content.casefold():
+                if LEGACY_IDENTITY in content.casefold():
                     errors.append(f"{relative} conserva identidad heredada en contenido público")
                 if any(pattern.search(content) for pattern in SECRET_PATTERNS):
                     errors.append(f"{relative} contiene un posible secreto")

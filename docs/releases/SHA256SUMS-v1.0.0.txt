@@ -1,0 +1,4 @@
+8679ac2ad14636a3674437e56808af03e783031184b2bd76eb35b849cc2a3d67  Sultana-del-Norte-v1.0.0-Windows-x64-portable.zip
+020dc941dfcc399a5aad42be993165831640f5bb3336a4e2ae42370da81e604f  Sultana-del-Norte-v1.0.0-Windows-x64.exe
+1b109c8e3e9bd84333e17ac6efa689c56715a4839da43176e0c5d4a8584161ea  Sultana-del-Norte-ExpoCiencias-2026.mp4
+605621afb543a7f81f11832f0408ad3416f21327845cc6a881c6b563d6b2b363  Sultana-del-Norte-v1.0.0-material-tecnico-y-multimedia.zip
