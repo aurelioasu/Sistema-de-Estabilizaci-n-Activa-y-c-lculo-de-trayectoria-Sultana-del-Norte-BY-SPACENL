@@ -1,20 +1,24 @@
-"""Build the single-file Windows executable of Sultana del Norte.
+"""Build the Windows distributions of Sultana del Norte.
 
 Usage:
-    .\\.venv\\Scripts\\python.exe build_exe.py
+    .\\.venv\\Scripts\\python.exe build_exe.py --mode both
 
-The result is ``output\\Sultana-del-Norte.exe``. Qt, VTK, the C++ simulation
-module and scenario data are embedded and extracted automatically at launch.
+The single-file result is ``output\\Sultana-del-Norte.exe``. The portable
+result is ``output\\Sultana-del-Norte\\Sultana-del-Norte.exe``. Both include
+Qt, VTK, the C++ simulation module, Kutta and scenario data.
 """
 from __future__ import annotations
 
+import argparse
 import subprocess
 import sys
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent
-EXECUTABLE = ROOT / "output" / "Sultana-del-Norte.exe"
+OUTPUT = ROOT / "output"
+EXECUTABLE = OUTPUT / "Sultana-del-Norte.exe"
+PORTABLE_EXECUTABLE = OUTPUT / "Sultana-del-Norte" / "Sultana-del-Norte.exe"
 BUILD = ROOT / "build" / "windows-current" / "Release"
 
 
@@ -27,16 +31,16 @@ def core_module() -> Path:
     return modules[0]
 
 
-def main() -> int:
-    module = core_module()
-    kutta = ROOT / "tools" / "kutta" / "kutta.exe"
-    if not kutta.is_file():
-        raise RuntimeError("No se encontró Kutta. Ejecuta primero 'python build_kutta.py'.")
-    command = [
-        sys.executable, "-m", "PyInstaller", "--noconfirm", "--clean", "--windowed", "--onefile",
+def pyinstaller_command(module: Path, kutta: Path, *, mode: str) -> list[str]:
+    if mode not in {"onefile", "onedir"}:
+        raise ValueError(f"Modo de distribución desconocido: {mode}")
+    mode_flag = "--onefile" if mode == "onefile" else "--onedir"
+    pyinstaller_work = ROOT / "build" / "pyinstaller" / mode
+    return [
+        sys.executable, "-m", "PyInstaller", "--noconfirm", "--clean", "--windowed", mode_flag,
         "--name", "Sultana-del-Norte", "--distpath", str(ROOT / "output"),
-        "--workpath", str(ROOT / "build" / "pyinstaller"),
-        "--specpath", str(ROOT / "build" / "pyinstaller"),
+        "--workpath", str(pyinstaller_work),
+        "--specpath", str(pyinstaller_work),
         "--paths", str(ROOT / "python"), "--paths", str(module.parent),
         "--add-data", f"{ROOT / 'configs'}{';'}configs",
         "--add-data", f"{ROOT / 'data'}{';'}data",
@@ -50,10 +54,34 @@ def main() -> int:
         "--collect-all", "pyarrow", "--collect-all", "rocketcea",
         str(ROOT / "python" / "app" / "bootstrap.py"),
     ]
-    subprocess.run(command, cwd=ROOT, check=True)
-    if not EXECUTABLE.is_file():
-        raise RuntimeError("PyInstaller terminó sin generar el ejecutable esperado.")
-    print(f"\n[OK] Ejecutable único: {EXECUTABLE}")
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Compilar la aplicación Windows Sultana del Norte")
+    parser.add_argument(
+        "--mode",
+        choices=("onefile", "onedir", "both"),
+        default="onefile",
+        help="Generar un ejecutable único, una carpeta portable o ambas distribuciones",
+    )
+    args = parser.parse_args(argv)
+
+    module = core_module()
+    kutta = ROOT / "tools" / "kutta" / "kutta.exe"
+    if not kutta.is_file():
+        raise RuntimeError("No se encontró Kutta. Ejecuta primero 'python build_kutta.py'.")
+
+    modes = ("onefile", "onedir") if args.mode == "both" else (args.mode,)
+    artifacts = {
+        "onefile": (EXECUTABLE, "Ejecutable único"),
+        "onedir": (PORTABLE_EXECUTABLE, "Carpeta portable"),
+    }
+    for mode in modes:
+        subprocess.run(pyinstaller_command(module, kutta, mode=mode), cwd=ROOT, check=True)
+        artifact, label = artifacts[mode]
+        if not artifact.is_file():
+            raise RuntimeError(f"PyInstaller terminó sin generar el resultado esperado: {artifact}")
+        print(f"\n[OK] {label}: {artifact}")
     return 0
 
 

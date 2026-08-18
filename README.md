@@ -142,7 +142,7 @@ El programa puede abrir y usar simulación, mapas, telemetría y vistas previas 
 | Aplicación Python | 112 pruebas superadas |
 | Núcleo físico C++ | Compilación Release y 1/1 prueba CTest superada |
 | Módulo Kutta/Go | Pruebas superadas en sus paquetes |
-| Higiene del repositorio | 14 pruebas de estructura, identidad, secretos y contratos |
+| Higiene del repositorio | 15 pruebas de estructura, identidad, secretos y contratos |
 
 Los comandos exactos y las dependencias verificadas están en los README de [firmware](03-firmware-esp32/README.md) y [aplicación](04-app-sultana/README.md).
 

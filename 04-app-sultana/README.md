@@ -79,10 +79,15 @@ Después de preparar el entorno, compilar el núcleo y generar Kutta:
 ```powershell
 .\.venv\Scripts\python.exe -m pip install pyinstaller
 .\.venv\Scripts\python.exe build_kutta.py
-.\.venv\Scripts\python.exe build_exe.py
+.\.venv\Scripts\python.exe build_exe.py --mode both
 ```
 
-El resultado local es `output/Sultana-del-Norte.exe`. Los paquetes versionados y sus hashes se generan fuera del historial Git.
+Los resultados locales son:
+
+- `output/Sultana-del-Norte.exe`: ejecutable único;
+- `output/Sultana-del-Norte/Sultana-del-Norte.exe`: carpeta portable.
+
+Los paquetes versionados y sus hashes se generan fuera del historial Git.
 
 ## Alcance de validación
 

@@ -29,6 +29,22 @@ def test_windows_build_uses_public_product_name() -> None:
     assert namespace["EXECUTABLE"].name == "Sultana-del-Norte.exe"
 
 
+def test_windows_build_supports_a_portable_directory() -> None:
+    build_script = REPOSITORY_ROOT / "04-app-sultana" / "build_exe.py"
+
+    namespace = runpy.run_path(str(build_script), run_name="sultana_build_contract")
+    command = namespace["pyinstaller_command"](
+        REPOSITORY_ROOT / "build" / "sultana_core.pyd",
+        REPOSITORY_ROOT / "tools" / "kutta.exe",
+        mode="onedir",
+    )
+
+    assert "--onedir" in command
+    assert "--onefile" not in command
+    assert namespace["PORTABLE_EXECUTABLE"].name == "Sultana-del-Norte.exe"
+    assert namespace["PORTABLE_EXECUTABLE"].parent.name == "Sultana-del-Norte"
+
+
 def test_application_metadata_matches_release_version() -> None:
     application_root = REPOSITORY_ROOT / "04-app-sultana"
     metadata = tomllib.loads((application_root / "pyproject.toml").read_text(encoding="utf-8"))
