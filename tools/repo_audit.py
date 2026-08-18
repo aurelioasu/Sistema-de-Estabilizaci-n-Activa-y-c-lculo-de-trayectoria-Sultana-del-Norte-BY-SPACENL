@@ -34,7 +34,7 @@ TEXT_EXTENSIONS = {
     ".yml",
 }
 IDENTITY_SCAN_EXEMPT_PREFIXES = ("docs/superpowers/", "tests/", "tools/")
-IGNORED_DIRECTORY_NAMES = {".git", "build"}
+IGNORED_DIRECTORY_NAMES = {".git", "build", "output"}
 SECRET_PATTERNS = (
     re.compile(r"\bgh[pousr]_[A-Za-z0-9]{36,}\b"),
     re.compile(r"\bgithub_pat_[A-Za-z0-9_]{20,}\b"),
