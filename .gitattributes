@@ -1,5 +1,6 @@
 * text=auto
 
+*.afoil text eol=lf
 *.c text eol=lf
 *.cmake text eol=lf
 *.cpp text eol=lf
@@ -10,13 +11,19 @@
 *.html text eol=lf
 *.ino text eol=lf
 *.json text eol=lf
+*.kage text eol=lf
 *.md text eol=lf
+*.mod text eol=lf
 *.py text eol=lf
+*.sh text eol=lf
+*.sum text eol=lf
 *.svg text eol=lf
 *.toml text eol=lf
 *.txt text eol=lf
+*.vtp text eol=lf
 *.yaml text eol=lf
 *.yml text eol=lf
+LICENSE text eol=lf
 
 *.docx binary
 *.gif binary
@@ -30,4 +37,3 @@
 *.step binary
 *.stl binary
 *.zip binary
-

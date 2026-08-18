@@ -1,0 +1,12 @@
+schema_version: 1
+parameters:
+  dry_mass_kg: {unit: kg, source: "Pendiente de báscula", date: "2026-07-29", uncertainty: 0.05, status: pending}
+  propellant_mass_kg: {unit: kg, source: "Estimación preliminar", date: "2026-07-29", uncertainty: 0.03, status: estimated}
+  cg_dry_m: {unit: m, source: "Pendiente de balance", date: "2026-07-29", uncertainty: 0.01, status: pending}
+  cg_wet_m: {unit: m, source: "Estimación preliminar", date: "2026-07-29", uncertainty: 0.02, status: estimated}
+  inertia_dry_kg_m2: {unit: kg*m^2, source: "Pendiente de ensayo pendular", date: "2026-07-29", uncertainty: 0.2, status: pending}
+  inertia_wet_kg_m2: {unit: kg*m^2, source: "Estimación preliminar", date: "2026-07-29", uncertainty: 0.2, status: estimated}
+  thrust_curve: {unit: N, source: "Curva KNSB preliminar", date: "2026-07-29", uncertainty: 0.1, status: estimated}
+  cd_table: {unit: "-", source: "Tabla preliminar; reemplazar con CFD/túnel", date: "2026-07-29", uncertainty: 0.15, status: estimated}
+  parachute_cds: {unit: m^2, source: "Estimación de fabricante", date: "2026-07-29", uncertainty: 0.2, status: estimated}
+  rail_length_m: {unit: m, source: "Pendiente de medición de riel", date: "2026-07-29", uncertainty: 0.01, status: pending}

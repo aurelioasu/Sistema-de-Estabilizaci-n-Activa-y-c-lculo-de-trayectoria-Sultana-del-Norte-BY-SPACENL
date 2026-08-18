@@ -1,0 +1,55 @@
+schema_version: 1
+vehicle_id: sultana-four-canard-preliminary-ensayo-cfd
+parameter_registry_yaml: data/calibration/parameter_registry.yaml
+geometry:
+  diameter_m: 0.051
+  reference_area_m2: 0.002
+  body_length_m: 0.902
+  cp_m: 0.78
+mass:
+  dry_mass_kg: 1.2
+  propellant_mass_kg: 0.25
+  cg_dry_m: 0.63
+  cg_wet_m: 0.72
+  inertia_dry_kg_m2:
+  - 0.025
+  - 0.22
+  - 0.22
+  inertia_wet_kg_m2:
+  - 0.028
+  - 0.25
+  - 0.25
+  mass_curve_csv: configs/scenarios/ensayo-cfd/data/mass_profile.csv
+aerodynamics:
+  cd_base: 0.55
+  aero_table_csv: configs/scenarios/ensayo-cfd/data/aero_table.csv
+  body_cn_alpha_per_rad: 2.0
+  cd_alpha2: 0.08
+  cd_reynolds_per_log: 0.0
+  reference_reynolds: 100000.0
+  angular_damping_nm_per_rad_s: 0.04
+  canard_area_m2: 0.001
+  canard_arm_m: 0.42
+  canard_cl_alpha_per_rad: 2.5
+actuators:
+  count: 4
+  max_canard_deflection_deg: 15.0
+  max_canard_rate_deg_s: 666.67
+  canard_command_delay_s: 0.02
+  canard_mount_offset_rad:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+recovery:
+  parachute_area_m2: 0.7
+  parachute_cd: 1.5
+  parachute_deploy_delay_s: 0.25
+  parachute_inflation_time_s: 0.8
+propulsion:
+  burn_time_s: 2.0
+  thrust_curve_csv: configs/scenarios/ensayo-cfd/data/thrust_curve.csv
+calibration:
+  thrust_curve: false
+  mass_properties: false
+  aerodynamics: false

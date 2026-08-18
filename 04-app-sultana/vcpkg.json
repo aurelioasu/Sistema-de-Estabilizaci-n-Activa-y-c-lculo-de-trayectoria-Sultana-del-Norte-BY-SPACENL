@@ -1,0 +1,5 @@
+{
+  "name": "sultana-flight-simulator",
+  "version-string": "0.1.0",
+  "dependencies": ["eigen3", "pybind11", "catch2"]
+}

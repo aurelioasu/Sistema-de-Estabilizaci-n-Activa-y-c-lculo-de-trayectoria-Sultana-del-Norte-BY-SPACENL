@@ -1,0 +1,97 @@
+schema_version: 1
+vehicle_id: sultana-four-canard-preliminary
+parameter_registry_yaml: data/calibration/parameter_registry.yaml
+geometry:
+  diameter_m: 0.0508
+  reference_area_m2: 0.0020268
+  body_length_m: 0.902
+  cp_m: 0.78
+mass:
+  dry_mass_kg: 1.20
+  propellant_mass_kg: 0.25
+  cg_dry_m: 0.63
+  cg_wet_m: 0.72
+  inertia_dry_kg_m2: [0.025, 0.22, 0.22]
+  inertia_wet_kg_m2: [0.028, 0.25, 0.25]
+  mass_curve_csv: data/mass_profiles/preliminary_mass_properties.csv
+aerodynamics:
+  cd_base: 0.55
+  aero_table_csv: data/aerodynamics/preliminary_aero_table.csv
+  body_cn_alpha_per_rad: 2.0
+  cd_alpha2: 0.08
+  cd_reynolds_per_log: 0.0
+  reference_reynolds: 100000.0
+  angular_damping_nm_per_rad_s: 0.04
+  canard_area_m2: 0.0012
+  canard_arm_m: 0.42
+  canard_cl_alpha_per_rad: 2.5
+actuators:
+  count: 4
+  max_canard_deflection_deg: 15
+  # KST X08H Plus at its nominal 7.4 V: 0.12 s / 60 degrees.
+  max_canard_rate_deg_s: 500
+  canard_command_delay_s: 0.02
+  canard_mount_offset_rad: [0.0, 0.0, 0.0, 0.0]
+recovery:
+  # Paracaídas circular medido: Ø 0.50 m; A = π(0.25 m)².
+  parachute_area_m2: 0.19634954
+  parachute_cd: 1.50
+  parachute_deploy_delay_s: 0.25
+  parachute_inflation_time_s: 0.80
+propulsion:
+  selected_motor_id: knsb_20cm
+  # La curva de empuje sigue siendo estimada hasta contar con ensayo estático.
+  # RocketCEA calcula el rendimiento termoquímico de equilibrio, no la tasa de
+  # regresión del grano ni la resistencia del contenedor de PVC.
+  rocketcea:
+    chamber_pressure_pa: 3447378.65 # 500 psia, supuesto preliminar
+    expansion_ratio: 5.0            # Ae/At, supuesto preliminar
+    catalyst_mass_g: 1.0            # óxido de hierro declarado por el usuario
+    status: "preliminar: faltan puerto/grano, garganta, tobera y ensayo estático"
+  motors:
+    - id: knsb_10cm
+      label: "KNSB 10 cm · estimado"
+      grain_length_m: 0.10
+      propellant_mass_kg: 0.125
+      burn_time_s: 1.0
+      thrust_curve_csv: data/thrust_curves/knsb_10cm_estimated.csv
+    - id: knsb_15cm
+      label: "KNSB 15 cm · estimado"
+      grain_length_m: 0.15
+      propellant_mass_kg: 0.188
+      burn_time_s: 1.5
+      thrust_curve_csv: data/thrust_curves/knsb_15cm_estimated.csv
+    - id: knsb_20cm
+      label: "KNSB 20 cm · estimado"
+      grain_length_m: 0.20
+      propellant_mass_kg: 0.250
+      burn_time_s: 2.0
+      thrust_curve_csv: data/thrust_curves/preliminary_knsb.csv
+  burn_time_s: 2.0
+  thrust_curve_csv: data/thrust_curves/preliminary_knsb.csv
+  propellant:
+    oxidizer: potassium_nitrate
+    fuel: sorbitol
+    mixture_notes: "Declarado por el usuario: 70% sorbitol, 30% nitrato de potasio y 1 g de óxido de hierro. La composición termoquímica exacta y la geometría aún están pendientes."
+    rocketcea_status: preliminary_equilibrium_report; grain_and_nozzle_geometry_pending
+physical_inventory:
+  body:
+    material: "PVC cédula 40 nominal 2 in"
+    nominal_schedule40_od_m: 0.060325
+    nominal_schedule40_wall_m: 0.003912
+    cad_main_body_od_m_approx: 0.0798
+    status: "INCONSISTENCIA: CAD y especificación nominal no coinciden; medir OD real con calibrador antes de calibrar aerodinámica/masa."
+  aerodynamic_surfaces: {material: "PLA, relleno 50%", status: "Masa y densidad efectiva pendientes"}
+  motor_case: {material: "PVC sanitario nominal 1½ in", status: "Tobera y dimensiones internas pendientes"}
+  electronics: {mass_kg: 0.250, status: "Posición longitudinal pendiente"}
+  servos:
+    model: "KST X08/X08H Plus"
+    count: 4
+    actuator_mass_kg: 0.036
+    installed_system_mass_kg: 0.150
+    status: "150 g declarado por el usuario para servos instalados; 36 g corresponde sólo a cuatro actuadores y el resto cubre soportes/cableado. Confirmar inclusión en dry_mass_kg."
+  parachute: {mass_kg: 0.400, diameter_m: 0.50, lines: 10, status: "Confirmar si ya está incluida en dry_mass_kg"}
+calibration:
+  thrust_curve: false
+  mass_properties: false
+  aerodynamics: false

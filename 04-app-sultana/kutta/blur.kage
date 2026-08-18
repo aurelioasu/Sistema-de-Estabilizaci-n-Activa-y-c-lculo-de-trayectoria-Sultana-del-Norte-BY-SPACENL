@@ -1,0 +1,25 @@
+//go:build ignore
+
+//kage:unit pixels
+
+// Separable Gaussian blur used by the bloom (glow) pass. Direction is the
+// per-tap pixel step: (spread, 0) for the horizontal pass and (0, spread) for
+// the vertical pass. A 9-tap normalized kernel is plenty for a soft halo.
+package main
+
+var Direction vec2
+
+func Fragment(_ vec4, srcPos vec2, _ vec4) vec4 {
+	w0 := 0.227027
+	w1 := 0.1945946
+	w2 := 0.1216216
+	w3 := 0.0540541
+	w4 := 0.0162162
+
+	c := imageSrc0At(srcPos) * w0
+	c += (imageSrc0At(srcPos+Direction*1.0) + imageSrc0At(srcPos-Direction*1.0)) * w1
+	c += (imageSrc0At(srcPos+Direction*2.0) + imageSrc0At(srcPos-Direction*2.0)) * w2
+	c += (imageSrc0At(srcPos+Direction*3.0) + imageSrc0At(srcPos-Direction*3.0)) * w3
+	c += (imageSrc0At(srcPos+Direction*4.0) + imageSrc0At(srcPos-Direction*4.0)) * w4
+	return c
+}
