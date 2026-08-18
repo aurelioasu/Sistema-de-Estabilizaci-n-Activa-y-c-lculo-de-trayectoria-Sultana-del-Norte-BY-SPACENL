@@ -15,12 +15,33 @@ Este documento registra cómo se transforma la entrega original en la publicaci�
 
 | Área | Fuente | Destino | Estado |
 | --- | --- | --- | --- |
-| Diseño mecánico y CFD | Entrega técnica | `01-diseno-cad/` | Pendiente de curación |
-| Electrónica | Entrega técnica | `02-electronica/` | Pendiente de curación |
-| Firmware ESP32 | Área de trabajo local | `03-firmware-esp32/` | Pendiente de importación |
-| Aplicación | Área de trabajo local | `04-app-sultana/` | Pendiente de importación |
+| Diseño mecánico y CFD | Entrega técnica | `01-diseno-cad/` | Curado: 97 archivos en Git y 12 activos únicos reservados para Release |
+| Electrónica | Entrega técnica | `02-electronica/` | Curado: 15 de 15 archivos incluidos |
+| Firmware ESP32 | Área de trabajo local | `03-firmware-esp32/` | Completo: 3 sketches limpios y compilados |
+| Aplicación | Área de trabajo local | `04-app-sultana/` | Completo: fuentes Python, C++, Go, configuraciones y datos |
 | Documentación | Entrega técnica | `05-documentacion/` | Pendiente de curación |
 | Multimedia pesado | Entrega técnica | GitHub Release | Pendiente de empaquetado |
 
-La tabla se actualizará con inventarios, hashes y decisiones finales antes de publicar la versión `v1.0.0`.
+## Decisiones verificadas
 
+### Diseño CAD y CFD
+
+- La entrega contiene 126 archivos y 109 contenidos únicos por SHA-256.
+- Se incluyeron en Git 97 contenidos únicos: modelo STL, plano complementario, renders y 72 resultados CFD.
+- Doce contenidos dinámicos únicos —HTML, MP4 y ZIP— se reservaron para la Release.
+- Se descartaron 17 copias exactas; entre ellas, los dos STL con nombres de revisión distintos resultaron idénticos.
+- El detalle archivo por archivo se encuentra en [`01-diseno-cad/INVENTARIO.csv`](01-diseno-cad/INVENTARIO.csv).
+
+### Electrónica
+
+- Los 15 archivos entregados son distintos por SHA-256 y se conservaron.
+- STEP, OBJ, MTL y BOM mantienen su formato original; las rutas públicas se normalizaron.
+- El detalle se encuentra en [`02-electronica/INVENTARIO.csv`](02-electronica/INVENTARIO.csv).
+
+### Software
+
+- Se excluyeron entornos virtuales, cachés, resultados, compilaciones y ejecutables anteriores.
+- La aplicación conserva 46 archivos Python, 5 C++, 107 de Kutta, 7 configuraciones y 31 recursos de datos.
+- La identidad anterior fue eliminada de rutas, interfaz, protocolo propio y textos públicos.
+
+La tabla volverá a actualizarse al cerrar documentación, paquetes y Release `v1.0.0`.

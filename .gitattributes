@@ -14,6 +14,7 @@
 *.kage text eol=lf
 *.md text eol=lf
 *.mod text eol=lf
+*.mtl text eol=lf
 *.py text eol=lf
 *.sh text eol=lf
 *.sum text eol=lf
@@ -37,3 +38,6 @@ LICENSE text eol=lf
 *.step binary
 *.stl binary
 *.zip binary
+
+# Archivo autogenerado y autocontenido; conservar bytes originales.
+02-electronica/bom/interactive-bom.html binary
