@@ -9,7 +9,7 @@ flowchart LR
         ESP32 --> Seguridad["Interbloqueos y límites"]
         Seguridad --> Canards["4 actuadores / canards"]
         ESP32 --> Registro["Registro microSD"]
-        ESP32 <--> RadioV["Radio LoRa"]
+        ESP32 <--> RadioV["Radio nRF24L01"]
     end
 
     RadioV <--> RadioT["Estación terrestre ESP32-S3"]
